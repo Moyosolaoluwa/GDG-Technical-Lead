@@ -1,0 +1,14 @@
+import pandas as pd
+
+# load dataset
+df = pd.read_csv("WHR_2023.csv")
+
+# clean data
+df = df.drop_duplicates()
+df = df.fillna(df.mean(numeric_only=True))
+
+# save cleaned dataset
+df.to_csv("cleaned_data.csv", index=False)
+print("Cleaned dataset saved as cleaned_data.csv")
+print("Data cleaning completed.")
+print(df.head())
